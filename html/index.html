@@ -20,7 +20,7 @@
 
         --dt-border-radius: 3px;
 
-        --dt-background-color-container: #2a3338;
+        --dt-background-color-container: rgb(42, 51, 56);
         --dt-border-color: var(--secondary-color);
         --dt-bg-color: var(--highlight-color);
         --dt-text-color: var(--primary-color);
@@ -38,31 +38,71 @@
         font-size: 16px;
         }
 
-        .datatable-container {
+        .schedule-container {
         font-family: sans-serif;
         background-color: var(--dt-background-color-container);
         border-radius: var(--dt-border-radius);
+        padding: 5px;
         color: var(--dt-text-color);
         max-width: 1140px;
-        min-width: 950px;
+        min-width: 500px;
         margin: 0 auto;
         font-size: 12px;
         }
 
-        .datatable-container .header-tools {
+        .schedule-container .header-tools {
         border-bottom: solid 1px var(--dt-border-color);
         padding: var(--dt-padding);
-        padding-left: 0;
         display: flex;
-        align-items: baseline;
         }
 
-        .datatable-container .header-tools .search {
-        width: 30%;
+        .schedule-container .header-tools .tools {
+        width: 33%;
+        margin: 5px;
+        border-radius: var(--dt-border-radius);
+        background-color: rgb(30, 30, 30);
         }
 
-        .datatable-container .header-tools .search .search-input {
-        width: 100%;
+        .schedule-container .header-tools .tools table{
+        width: 90%;
+        margin: 5%;
+        }
+
+        .schedule-container .header-tools .tools table tr td{
+        width: 33%;
+        text-align: center;
+        }
+
+        .schedule-container .header-tools .tools table tr td input[type="radio"] {
+        display: none;
+
+        &:hover + label {
+        background-color: rgb(48, 56, 62);
+        }
+
+        &:checked + label {
+        background-color: var(--secondary-color);
+        &:before {
+			opacity: 1;
+		}
+        }
+        }
+
+        .schedule-container .header-tools .tools table tr td label {
+        display: flex;
+        padding: 5px;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: var(--dt-border-radius);
+
+        position: relative;
+        cursor: pointer;
+        transition: all 0.2s ease-out;
+        }
+        
+        .schedule-container .header-tools .tools .user-input {
+        width: 90%;
+        margin: 5%;
         height: calc(1.5em + 0.75rem + 2px);
         padding: 0.375rem 0.75rem;
         background-color: var(--dt-input-background-color);
@@ -73,300 +113,313 @@
         color: var(--dt-input-color);
         }
 
-        .datatable-container .header-tools .tools {
-        width: 70%;
-        }
-
-        .datatable-container .header-tools .tools ul {
-        margin: 0;
+        .schedule-container .header-tools .tools button {
+        margin: 5%;
         padding: 0;
         display: flex;
         justify-content: start;
         align-items: baseline;
-        }
-
-        .datatable-container .header-tools .tools ul li {
+        
         display: inline-block;
-        margin: 0 var(--dt-padding-xs);
-        align-items: baseline;
-        }
-
-        .datatable-container .footer-tools {
-        padding: var(--dt-padding);
-        display: flex;
-        align-items: baseline;
-        }
-
-        .datatable-container .footer-tools .list-items {
-        width: 50%;
-        }
-
-        .datatable-container .footer-tools .pages {
-        margin-left: auto;
-        margin-right: 0;
-        width: 50%;
-        }
-
-        .datatable-container .footer-tools .pages ul {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        align-items: baseline;
-        justify-content: flex-end;
-        }
-
-        .datatable-container .footer-tools .pages ul li {
-        display: inline-block;
-        margin: 0 var(--dt-padding-xs);
-        }
-
-        .datatable-container .footer-tools .pages ul li button,
-        .datatable-container .header-tools .tools ul li button {
+        
         color: var(--dt-text-color-button);
-        width: 100%;
+        padding: var(--dt-padding-s) var(--dt-padding);
+        width: 50%;
         box-sizing: border-box;
         border: 0;
         border-radius: var(--dt-border-radius);
-        background: transparent;
+        background: var(--secondary-color);
         cursor: pointer;
+        transform: translate(40%,0);
+        
         }
 
-        .datatable-container .footer-tools .pages ul li button:hover,
-        .datatable-container .header-tools .tools ul li button:hover {
+        .schedule-container .header-tools .tools button:hover {
         background: var(--dt-bg-active-button);
         color: var(--dt-text-color-active-button);
         }
 
-        .datatable-container .footer-tools .pages ul li span.active {
-        background-color: var(--dt-bg-color);
-        border-radius: var(--dt-border-radius);
-        }
-
-        .datatable-container .footer-tools .pages ul li button,
-        .datatable-container .footer-tools .pages ul li span,
-        .datatable-container .header-tools .tools ul li button {
-        padding: var(--dt-padding-s) var(--dt-padding);
-        }
-
-        .datatable-container .datatable {
+        .schedule-container .schedule {
         border-collapse: collapse;
+        padding: var(--dt-padding) var(--dt-padding);
         width: 100%;
         }
 
-        .datatable-container .datatable,
-        .datatable-container .datatable th,
-        .datatable-container .datatable td {
-        padding: var(--dt-padding) var(--dt-padding);
+        .schedule-container .schedule table {
+        table-layout: fixed;
         }
 
-        .datatable-container .datatable th {
+        .schedule-container .schedule th {
+        width: 12.5%;
         font-weight: bolder;
-        text-align: left;
+        text-align: center;
+        border-bottom: solid 1px var(--dt-border-color);
+        padding: var(--dt-padding);
+        }
+
+        .schedule-container .schedule td {
         border-bottom: solid 1px var(--dt-border-color);
         }
 
-        .datatable-container .datatable td {
-        border-bottom: solid 1px var(--dt-border-color);
-        }
-
-        .datatable-container .datatable tbody tr:nth-child(even) {
+        .schedule-container .schedule tbody tr:nth-child(even) {
         background-color: var(--dt-even-row-color);
         }
 
-        .datatable-container .datatable tbody tr:hover {
+        .schedule-container .schedule tbody td:hover {
         background-color: var(--dt-hover-cell-color);
         }
 
-        .datatable-container .datatable tbody tr .available::after,
-        .datatable-container .datatable tbody tr .away::after,
-        .datatable-container .datatable tbody tr .offline::after {
-        display: inline-block;
-        vertical-align: middle;
+        .schedule-container .to-do {
+        background-color: rgb(30, 30, 30);
+        color: var(--dt-text-color);
+        border-radius: var(--dt-border-radius);
+        padding: var(--dt-padding);
+        margin: var(--dt-padding);
         }
 
-        .datatable-container .datatable tbody tr .available::after {
-        content: "Online";
-        color: var(--dt-status-available-color);
-        }
-
-        .datatable-container .datatable tbody tr .away::after {
-        content: "Away";
-        color: var(--dt-status-away-color);
-        }
-
-        .datatable-container .datatable tbody tr .offline::after {
-        content: "Offline";
-        color: var(--dt-status-offline-color);
-        }
-
-        .datatable-container .datatable tbody tr .available::before,
-        .datatable-container .datatable tbody tr .away::before,
-        .datatable-container .datatable tbody tr .offline::before {
-        content: "";
-        display: inline-block;
-        width: 10px;
-        height: 10px;
-        margin-right: 10px;
-        border-radius: 50%;
-        vertical-align: middle;
-        }
-
-        .datatable-container .datatable tbody tr .available::before {
-        background-color: var(--dt-status-available-color);
-        }
-
-        .datatable-container .datatable tbody tr .away::before {
-        background-color: var(--dt-status-away-color);
-        }
-
-        .datatable-container .datatable tbody tr .offline::before {
-        background-color: var(--dt-status-offline-color);
+        .schedule-container .to-do .task {
+        padding: var(--dt-padding);
+        margin: var(--dt-padding);
         }
 
     </style>
 </head>
-<body>
-    <div class="datatable-container">
+
+<body style="background-color:rgb(30, 30, 30);">
+    <div class="schedule-container">
         <!-- ======= Header tools ======= -->
         <div class="header-tools">
-          <div class="tools">
-            <ul>
-              <li>
-                <button>
-                  <i class="material-icons">add_circle</i>
-                </button>
-              </li>
-              <li>
-                <button>
-                  <i class="material-icons">edit</i>
-                </button>
-              </li>
-              <li>
-                <button>
-                  <i class="material-icons">delete</i>
-                </button>
-              </li>
-            </ul>
-          </div>
-      
-          <div class="search">
-            <input type="search" class="search-input" placeholder="Search..." />
-          </div>
+            <form action="../new_task.php" method="post" class="tools">
+                <input class="user-input" type="text" id="title" name="title" placeholder="title...">
+
+                <table>
+                    <tr>
+                        <td>
+                            <input type="radio" id="red" name="color" value="red">
+                            <label for="red">Red</label>
+                        </td>
+                        <td>
+                            <input type="radio" id="green" name="color" value="green">
+                            <label for="green">Green</label>
+                        </td>
+                        <td>
+                            <input type="radio" id="blue" name="color" value="blue">
+                            <label for="blue">Blue</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="yellow" name="color" value="yellow">
+                            <label for="yellow">Yellow</label>
+                        </td>
+                        <td>
+                            <input type="radio" id="purple" name="color" value="purple">
+                            <label for="purple">Purple</label>
+                        </td>
+                        <td>
+                            <input type="radio" id="orange" name="color" value="orange">
+                            <label for="orange">Orange</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="pink" name="color" value="pink">
+                            <label for="pink">Pink</label>
+                        </td>
+                        <td>
+                            <input type="radio" id="brown" name="color" value="brown">
+                            <label for="brown">Brown</label>
+                        </td>
+                        <td>
+                            <input type="radio" id="white" name="color" value="white">
+                            <label for="white">White</label>
+                        </td>
+                    </tr>
+                </table><br>
+                
+                <input type="checkbox" id="to-do" name="to-do">
+                <label for="to-do">Is to-do</label><br>
+
+                <button class="material-icons" type="submit">Add</button>
+            </form>
+            <div class="tools">
+                <button class="material-icons" type="submit">Edit</button>               
+            </div>
+
+            <div class="tools">
+                <button class="material-icons" type="submit">Delete</button>
+            </div>
         </div>
+
+<!-- ======= Table ======= -->
+<table class="schedule">
+<thead>
+<tr>
+<th></th>
+<th>Monday</th>
+<th>Tuesday</th>
+<th>Wednesday</th>
+<th>Thursday</th>
+<th>Friday</th>
+<th>Saturday</th>
+<th>Sunday</th>
+</tr>
+</thead>
       
-        <!-- ======= Table ======= -->
-        <table class="datatable">
-          <thead>
-            <tr>
-              <th><input type="checkbox" /></th>
-              <th>Status</th>
-              <th>First name</th>
-              <th>Last name</th>
-              <th>Job title</th>
-              <th>Email</th>
-              <th>Username</th>
-              <th>Location</th>
-              <th>Birthday</th>
-            </tr>
-          </thead>
+<tbody>
+<tr>
+<th><pre>
+08:00
+/
+10:00</pre></th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
       
-          <tbody>
-            <tr>
-              <td>
-                <input type="checkbox" />
-              </td>
-              <td><span class="available"></span></td>
-              <td>John</td>
-              <td>Smith</td>
-              <td>Product Owner</td>
-              <td>john.smith@codepen.io</td>
-              <td>JohnSmith</td>
-              <td>Spain</td>
-              <td>January 21, 1984</td>
-            </tr>
+<tr>
+<th><pre>
+10:00
+/
+12:00</pre></th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
       
-            <tr>
-              <td>
-                <input type="checkbox" />
-              </td>
-              <td><span class="away"></span></td>
-              <td>George</td>
-              <td>Lucas</td>
-              <td>Scrum Master</td>
-              <td>george.lucas@codepen.io</td>
-              <td>GeorgeLucas</td>
-              <td>Switzerland</td>
-              <td>July 14, 1974</td>
-            </tr>
+<tr>
+<th><pre>
+12:00
+/
+13:00</pre></th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
       
+<tr>
+<th><pre>
+13:00
+/
+15:00</pre></th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<th><pre>
+15:00
+/
+17:00</pre></th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<th><pre>
+17:00
+/
+18:00</pre></th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<th><pre>
+18:00
+/
+20:00</pre></th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<th><pre>
+20:00
+/
+22:00</pre></th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<th><pre>
+
+DeadLine
+
+</pre></th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+    <div class="to-do">
+        <h3>To-Do</h3>
+        <table>
             <tr>
-              <td>
-                <input type="checkbox" />
-              </td>
-              <td><span class="offline"></span></td>
-              <td>Peter</td>
-              <td>Rabit</td>
-              <td>Software engineer</td>
-              <td>peter.rabit@codepen.io</td>
-              <td>PeterRabit</td>
-              <td>Ireland</td>
-              <td>September 02, 1977</td>
+                <td>
+                <input class="task" type="checkbox" id="task1" name="task1" value="task1">
+                <label for="task1">Task 1</label>
+                </td>
+                <td>
+                    <input class="task" type="checkbox" id="task2" name="task2" value="task2">
+                    <label for="task2">Task 2</label>
+                </td>
+                <td>
+                    <input class="task" type="checkbox" id="task3" name="task3" value="task3">
+                    <label for="task3">Task 3</label>
+                </td>
+                <td>
+                    <input class="task" type="checkbox" id="task4" name="task4" value="task4">
+                    <label for="task4">Task 4</label>
+                </td>
             </tr>
-      
-            <tr>
-              <td>
-                <input type="checkbox" />
-              </td>
-              <td><span class="offline"></span></td>
-              <td>Elizabeth</td>
-              <td>Taylor</td>
-              <td>UX Designer</td>
-              <td>elizabeth.taylor@codepen.io</td>
-              <td>ElizabethTaylor</td>
-              <td>London</td>
-              <td>February 27, 1982</td>
-            </tr>
-      
-            <tr>
-              <td>
-                <input type="checkbox" />
-              </td>
-              <td><span class="offline"></span></td>
-              <td>Catherine</td>
-              <td>Jones</td>
-              <td>QA tester</td>
-              <td>catherine.jones@codepen.io</td>
-              <td>CatherineJones</td>
-              <td>USA</td>
-              <td>December 07, 1978</td>
-            </tr>
-          </tbody>
+
         </table>
-      
-        <!-- ======= Footer tools ======= -->
-        <div class="footer-tools">
-          <div class="list-items">
-            Show
-            <select name="n-entries" id="n-entries" class="n-entries">
-              <option value="5">5</option>
-              <option value="10" selected>10</option>
-              <option value="15">15</option>
-            </select>
-            entries
-          </div>
-      
-          <div class="pages">
-            <ul>
-              <li><span class="active">1</span></li>
-              <li><button>2</button></li>
-              <li><button>3</button></li>
-              <li><button>4</button></li>
-              <li><span>...</span></li>
-              <li><button>9</button></li>
-              <li><button>10</button></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    </div>
+</div>
 </body>
 </html>

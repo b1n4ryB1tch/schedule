@@ -1,0 +1,8 @@
+{
+    "title": "Rengøring",
+    "color": "red",
+    "is_to-do": true,
+    "done": false,
+    "do_times": 1,
+    "locations": ["MonMorning","TueAfternoon","WedEvening","deadline"]
+}
