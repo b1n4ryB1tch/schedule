@@ -73,7 +73,7 @@
         text-align: center;
         }
 
-        .schedule-container .header-tools .tools table tr td input[type="radio"] {
+        .schedule-container .header-tools .tools input[type="radio"] {
         display: none;
 
         &:hover + label {
@@ -98,6 +98,36 @@
         position: relative;
         cursor: pointer;
         transition: all 0.2s ease-out;
+        }
+
+        .schedule-container .header-tools .tools input[type="checkbox"] {
+        display: none;
+
+        &:hover + label {
+        background-color: rgb(48, 56, 62);
+        }
+
+        &:checked + label {
+        background-color: var(--secondary-color);
+        &:before {
+			opacity: 1;
+		}
+        }
+        }
+
+        .schedule-container .header-tools .tools .checkBoxLable {
+        display: flex;
+        justify-content: start;
+        text-align: center;
+        
+        display: inline-block;
+
+        padding: var(--dt-padding);
+        width: 20%;
+        border: 0;
+        border-radius: var(--dt-border-radius);
+        cursor: pointer;
+        transform: translate(110%,0);
         }
         
         .schedule-container .header-tools .tools .user-input {
@@ -235,13 +265,14 @@
                             <label for="white">White</label>
                         </td>
                     </tr>
-                </table><br>
+                </table>
                 
                 <input type="checkbox" id="to-do" name="to-do">
-                <label for="to-do">Is to-do</label><br>
+                <label class ="checkBoxLable" for="to-do">To-Do</label><br>
 
                 <button class="material-icons" type="submit">Add</button>
             </form>
+
             <div class="tools">
                 <button class="material-icons" type="submit">Edit</button>               
             </div>
@@ -251,7 +282,7 @@
             </div>
         </div>
 
-<!-- ======= Table ======= -->
+<!-- ======= Schedule Table ======= -->
 <table class="schedule">
 <thead>
 <tr>
@@ -396,6 +427,7 @@ DeadLine
 </tbody>
 </table>
 
+    <!-- ======= To-Do ======= -->
     <div class="to-do">
         <h3>To-Do</h3>
         <table>
